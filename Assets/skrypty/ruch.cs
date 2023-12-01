@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,9 +12,12 @@ public class ruch : MonoBehaviour
     private int souls;
     public int soulsCount;
     public TextMeshProUGUI soulText;
-    public int Playerspeed;
-
-
+    public TextMeshProUGUI soulsall;
+    public TextMeshProUGUI endlvl;
+    public float Playerspeed;
+    public int allsouls;
+    private float timer = 0;
+    public int tipTime = 5;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -41,8 +45,26 @@ public class ruch : MonoBehaviour
         }
         Debug.Log("DUSZE: " + souls);
         soulText.text = souls.ToString();
-
-
+        soulsall.text = allsouls.ToString();
+        if( souls == allsouls)
+        {
+            if (timer <= tipTime)
+            {
+                if (timer < 3)
+                {
+                    endlvl.text = ("You collected all souls!!");
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    endlvl.text = ("Find the exit!!");
+                    timer += Time.deltaTime;
+                }
+            }
+            else {
+                endlvl.text = ("");
+            }
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
