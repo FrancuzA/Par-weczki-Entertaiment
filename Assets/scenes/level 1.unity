@@ -807,6 +807,22 @@ Transform:
   - {fileID: 710660814}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1098406165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098406162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526016a23b67cd04f9459d02f5728aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsCount: 0
+  soulText: {fileID: 1995649906}
+  Playerspeed: 1
+  spajt: {fileID: 1098406163}
 --- !u!50 &1098406166
 Rigidbody2D:
   serializedVersion: 4

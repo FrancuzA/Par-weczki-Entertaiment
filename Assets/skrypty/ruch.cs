@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,12 +13,16 @@ public class ruch : MonoBehaviour
     private int souls;
     public int soulsCount;
     public TextMeshProUGUI soulText;
+
     public TextMeshProUGUI soulsall;
     public TextMeshProUGUI endlvl;
     public float Playerspeed;
     public int allsouls;
     private float timer = 0;
     public int tipTime = 5;
+    public SpriteRenderer spajt;
+
+    [System.Obsolete]
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -27,11 +32,13 @@ public class ruch : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left *Playerspeed);
+            spajt.flipX = true;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right *Playerspeed);
+            spajt.flipX = false;
         }
 
         if (Input.GetKey(KeyCode.W))
