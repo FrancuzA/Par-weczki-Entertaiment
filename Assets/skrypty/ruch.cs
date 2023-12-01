@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,8 +13,9 @@ public class ruch : MonoBehaviour
     public int soulsCount;
     public TextMeshProUGUI soulText;
     public int Playerspeed;
+    public SpriteRenderer spajt;
 
-
+    [System.Obsolete]
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -23,11 +25,13 @@ public class ruch : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left *Playerspeed);
+            spajt.flipX = true;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right *Playerspeed);
+            spajt.flipX = false;
         }
 
         if (Input.GetKey(KeyCode.W))
@@ -41,8 +45,6 @@ public class ruch : MonoBehaviour
         }
         Debug.Log("DUSZE: " + souls);
         soulText.text = souls.ToString();
-
-
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
