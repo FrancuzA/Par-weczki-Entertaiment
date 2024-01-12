@@ -11,6 +11,7 @@ using Unity.Mathematics;
 
 public class ruch : MonoBehaviour
 {
+    public Rigidbody2D RB;
     private int souls;
     public int soulsCount;
     public TextMeshProUGUI soulText;
@@ -24,6 +25,7 @@ public class ruch : MonoBehaviour
     public Transform player;
     public Transform indicator;
     public GameObject triangle;
+    public GameObject exit;
     [System.Obsolete]
     void Update()
     {
@@ -33,7 +35,6 @@ public class ruch : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left *Playerspeed);
             spajt.flipX = true;
 
            GameObject closestObject = findclosest();
@@ -43,13 +44,13 @@ public class ruch : MonoBehaviour
             }
             else
             {
-                triangle.SetActive(false);
+                closestObject = exit;
+                Rotateindicator(closestObject.transform.position);
             }
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right *Playerspeed);
             spajt.flipX = false;
             
 
@@ -60,14 +61,13 @@ public class ruch : MonoBehaviour
             }
             else
             {
-                triangle.SetActive(false);
+                closestObject = exit;
+                Rotateindicator(closestObject.transform.position); ;
             }
         }
 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.up * Playerspeed);
-
             GameObject closestObject = findclosest();
             if (closestObject != null)
             {
@@ -75,14 +75,13 @@ public class ruch : MonoBehaviour
             }
             else
             {
-                triangle.SetActive(false);
+                closestObject = exit;
+                Rotateindicator(closestObject.transform.position);
             }
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.down * Playerspeed);
-
             GameObject closestObject = findclosest();
             if (closestObject != null)
             {
@@ -90,14 +89,15 @@ public class ruch : MonoBehaviour
             }
             else
             {
-                triangle.SetActive(false);
+                closestObject = exit;
+                Rotateindicator(closestObject.transform.position);
             }
         }
-        
         soulText.text = souls.ToString();
         soulsall.text = allsouls.ToString();
         if( souls == allsouls)
         {
+            exit.SetActive(true);
             if (timer <= tipTime)
             {
                 if (timer < 3)
@@ -115,6 +115,17 @@ public class ruch : MonoBehaviour
                 endlvl.text = ("");
             }
         }
+        /*
+        if(RB.velocity.magnitude > Playerspeed)
+        {
+            RB.velocity = new Vector2(RB.velocity.x,RB.velocity.y).normalized*Playerspeed;
+        }
+        */
+    }
+
+    public void FixedUpdate()
+    {
+        PlayerMovement();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -151,5 +162,13 @@ public class ruch : MonoBehaviour
         indicator.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 
+
+    public void PlayerMovement()
+    {
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+
+        RB.velocity = new Vector2(moveX, moveY).normalized*Playerspeed;
+    }
 }
 
