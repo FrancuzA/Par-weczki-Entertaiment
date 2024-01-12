@@ -750,6 +750,7 @@ MonoBehaviour:
   indicator: {fileID: 1893443495}
   triangle: {fileID: 1893443494}
   exit: {fileID: 560934827}
+  _wallhitbox: {fileID: 1395714682}
 --- !u!95 &1098406169
 Animator:
   serializedVersion: 5

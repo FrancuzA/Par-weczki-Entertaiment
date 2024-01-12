@@ -27,6 +27,7 @@ public class ruch : MonoBehaviour
     public GameObject triangle;
     public GameObject exit;
     [System.Obsolete]
+    public GameObject _wallhitbox;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -115,12 +116,12 @@ public class ruch : MonoBehaviour
                 endlvl.text = ("");
             }
         }
-        /*
-        if(RB.velocity.magnitude > Playerspeed)
-        {
-            RB.velocity = new Vector2(RB.velocity.x,RB.velocity.y).normalized*Playerspeed;
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.H)) {
+            _wallhitbox.GetComponent<PolygonCollider2D>().enabled = false;
         }
-        */
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.H)){
+            Playerspeed = 60;
+        }
     }
 
     public void FixedUpdate()
