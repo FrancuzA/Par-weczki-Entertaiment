@@ -711,7 +711,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -742,7 +742,7 @@ MonoBehaviour:
   soulText: {fileID: 1995649906}
   soulsall: {fileID: 1614864807}
   endlvl: {fileID: 1830070951}
-  Playerspeed: 4
+  Playerspeed: 20
   allsouls: 9
   tipTime: 5
   spajt: {fileID: 1098406163}

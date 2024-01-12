@@ -168,7 +168,7 @@ public class ruch : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        RB.velocity = new Vector2(moveX, moveY).normalized*Playerspeed;
+        RB.AddForce(new Vector2(moveX, moveY).normalized * Playerspeed, ForceMode2D.Force);
     }
 }
 
