@@ -30,10 +30,6 @@ public class ruch : MonoBehaviour
     public GameObject _wallhitbox;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(0);
-        }
         if (Input.GetKey(KeyCode.A))
         {
             spajt.flipX = true;
