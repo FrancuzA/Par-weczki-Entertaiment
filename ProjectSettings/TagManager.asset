@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - soul
+  - EXIT
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - EXIT
   - Water
   - UI
   - 

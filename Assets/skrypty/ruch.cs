@@ -28,6 +28,7 @@ public class ruch : MonoBehaviour
     public GameObject exit;
     [System.Obsolete]
     public GameObject _wallhitbox;
+    public GameObject _exit;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -115,6 +116,7 @@ public class ruch : MonoBehaviour
             else {
                 endlvl.text = ("");
             }
+            _exit.SetActive(false);
         }
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.H)) {
             _wallhitbox.GetComponent<PolygonCollider2D>().enabled = false;
@@ -134,6 +136,11 @@ public class ruch : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             souls++;
+        }
+        if (other.gameObject.CompareTag("EXIT"))
+        {
+            SceneManager.LoadScene(2);
+            Debug.Log("exit");
         }
     }
 
