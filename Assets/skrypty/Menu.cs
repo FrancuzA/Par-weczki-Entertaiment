@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
    public Animator animator;
+    public Animator animcanva;
     public float timer = 0.0f;
     private bool isPlayClicked = false;
 
@@ -25,8 +26,9 @@ public class Menu : MonoBehaviour
     {
         isPlayClicked = true;
         animator.Play("menu 0");
-      
-       
+        animator.Play("canvamenu 0");
+
+
     }
     public void ExitGame()
     {
